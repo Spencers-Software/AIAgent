@@ -82,6 +82,6 @@ def get_messages(issue_id: int) -> list[dict]:
     with get_conn() as conn:
         rows = conn.execute(
             "SELECT role, content FROM messages WHERE issue_id = ? ORDER BY created_at",
-            (issue_id,),
+            (issue_id,)
         ).fetchall()
         return [dict(r) for r in rows]
