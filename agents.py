@@ -276,8 +276,7 @@ def handle_new_issue(repo: str, issue_number: int, title: str, body: str):
     _run_specialist(issue_id, routing["assigned_agent"], repo, issue_number)
     print(f"[{routing['assigned_agent']}] Responded to #{issue_number}")
 
-    if routing["assigned_agent"] in ("BugAgent", "FeatureAgent"):
-        _attempt_code_fix(repo, issue_number, title, body)
+    _attempt_code_fix(repo, issue_number, title, body)
 
 
 def handle_comment(repo: str, issue_number: int, comment_body: str):
